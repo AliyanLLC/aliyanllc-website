@@ -361,6 +361,54 @@ p{margin:0}
   .criteria ul{grid-template-columns:minmax(0,1fr)}
 }
 
+/* ---------- Store: categories + product grid (white) ---------- */
+.store{background:#FFFFFF;color:var(--ink)}
+.store .label{color:var(--brass-ink);display:block;margin-bottom:14px}
+.store-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 48px;margin-bottom:clamp(28px,4vw,44px)}
+.store-head h2{font-size:clamp(32px,4vw,50px);line-height:1.05;letter-spacing:-.01em}
+.store-head p{color:var(--slate);max-width:46ch}
+.store-head--products{margin-top:clamp(64px,8vw,104px);scroll-margin-top:24px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.tile{position:relative;display:block;overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:#EEF1EC;text-decoration:none;color:#FFFFFF}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,23,20,0) 40%,rgba(11,23,20,.82) 100%)}
+.tile:hover img{transform:scale(1.04)}
+.tile-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px;display:flex;flex-direction:column;gap:6px}
+.tile-name{font-family:var(--display);font-size:clamp(22px,2vw,28px);line-height:1.1}
+.tile-meta{font-size:13px;color:rgba(238,241,236,.85)}
+.tile-cta{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-soft);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--sans);font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid #D5DBD5;background:#FFFFFF;color:var(--ink);cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--spruce-900);border-color:var(--spruce-900);color:var(--porcelain)}
+.pgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.pcard{display:flex;flex-direction:column;border:1px solid #E6EAE6;border-radius:4px;overflow:hidden;background:#FFFFFF;transition:box-shadow .25s,transform .25s}
+.pcard:hover{box-shadow:0 18px 40px -24px rgba(11,23,20,.35);transform:translateY(-2px)}
+.pcard[hidden]{display:none!important}
+.pimg{position:relative;aspect-ratio:1/1;background:#F5F7F4;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.ptag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--spruce-900);padding:5px 9px;border-radius:2px}
+.pbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pcat{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-ink)}
+.ptitle{font-family:var(--sans);font-size:17px;font-weight:600;line-height:1.3;color:var(--ink)}
+.pprice{margin-top:auto;padding-top:8px;display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.pprice-label{font-size:12.5px;color:var(--slate)}
+.pprice-val{font-size:18px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.plink{font-size:14px;font-weight:600;color:var(--brass-ink);text-decoration:none;margin-top:4px}
+.plink:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1100px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:960px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){
+  .tile{aspect-ratio:3/4}
+  .tile-body{padding:14px}
+  .pbody{padding:12px 12px 14px}
+  .ptitle{font-size:15px}
+  .pprice-val{font-size:16px}
+  .ptag{font-size:9.5px;top:8px;left:8px}
+}
+@media (prefers-reduced-motion:reduce){.tile img,.pcard{transition:none}.tile:hover img{transform:none}.pcard:hover{transform:none}}
+
 /* ---------- Responsive ---------- */
 @media (max-width:960px){
   .hero-grid{grid-template-columns:minmax(0,1fr);align-items:start}
@@ -443,6 +491,189 @@ p{margin:0}
 </header>
 
 <main>
+  <section class="section store" id="categories" aria-labelledby="store-title">
+    <div class="wrap">
+      <div class="store-head">
+        <div>
+          <span class="label">Categories</span>
+          <h2 id="store-title">Browse by category</h2>
+        </div>
+        <p>Four Amazon categories with steady, repeat demand. Select a category to see the product types we source in it.</p>
+      </div>
+
+      <div class="tiles">
+        <a class="tile" href="#products" data-filter="home">
+          <img src="https://images.unsplash.com/photo-1696986681436-f5ee12981bc9?auto=format&amp;fit=crop&amp;w=720&amp;h=900&amp;q=80" alt="A modern kitchen with a range cooker and open shelving" width="720" height="900" loading="lazy">
+          <span class="tile-body">
+            <span class="tile-name">Home &amp; Kitchen</span>
+            <span class="tile-meta">3 product types &middot; Typical retail $10&ndash;$150</span>
+            <span class="tile-cta">View products <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+        <a class="tile" href="#products" data-filter="health">
+          <img src="https://images.unsplash.com/photo-1648139346494-2b961c5a2bb7?auto=format&amp;fit=crop&amp;w=720&amp;h=900&amp;q=80" alt="An open jar of gummy vitamins beside sliced oranges" width="720" height="900" loading="lazy">
+          <span class="tile-body">
+            <span class="tile-name">Health &amp; Household</span>
+            <span class="tile-meta">3 product types &middot; Typical retail $8&ndash;$80</span>
+            <span class="tile-cta">View products <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+        <a class="tile" href="#products" data-filter="beauty">
+          <img src="https://images.unsplash.com/photo-1613803745799-ba6c10aace85?auto=format&amp;fit=crop&amp;w=720&amp;h=900&amp;q=80" alt="A serum dropper bottle and a cream jar on a white surface" width="720" height="900" loading="lazy">
+          <span class="tile-body">
+            <span class="tile-name">Beauty &amp; Personal Care</span>
+            <span class="tile-meta">3 product types &middot; Typical retail $5&ndash;$60</span>
+            <span class="tile-cta">View products <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+        <a class="tile" href="#products" data-filter="pet">
+          <img src="https://images.unsplash.com/photo-1692906456159-f93a6f3df407?auto=format&amp;fit=crop&amp;w=720&amp;h=900&amp;q=80" alt="A husky being handed a stainless steel food bowl" width="720" height="900" loading="lazy">
+          <span class="tile-body">
+            <span class="tile-name">Pet Supplies</span>
+            <span class="tile-meta">3 product types &middot; Typical retail $8&ndash;$45</span>
+            <span class="tile-cta">View products <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="store-head store-head--products" id="products">
+        <div>
+          <span class="label">Product focus</span>
+          <h2>Products we source</h2>
+        </div>
+        <div class="chips" role="group" aria-label="Filter products by category">
+          <button type="button" class="chip" id="chip-all" data-chip="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" id="chip-home" data-chip="home" aria-pressed="false">Home &amp; Kitchen</button>
+          <button type="button" class="chip" id="chip-health" data-chip="health" aria-pressed="false">Health &amp; Household</button>
+          <button type="button" class="chip" id="chip-beauty" data-chip="beauty" aria-pressed="false">Beauty &amp; Personal Care</button>
+          <button type="button" class="chip" id="chip-pet" data-chip="pet" aria-pressed="false">Pet Supplies</button>
+        </div>
+      </div>
+
+      <ul class="pgrid">
+        <li class="pcard" data-cat="home">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1584990347193-6bebebfeaeee?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A nonstick cookware set of pans and saucepans on a white background" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Home &amp; Kitchen</span>
+            <h3 class="ptitle">Nonstick Cookware Set</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$60&ndash;$150</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="home">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1621318551436-68573392fd5c?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="Glass pantry jars filled with pasta, beans and grains" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Home &amp; Kitchen</span>
+            <h3 class="ptitle">Glass Pantry Storage Jars</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$20&ndash;$45</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="home">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1520981825232-ece5fae45120?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="Wooden cooking spoons in a white ceramic crock beside cutting boards" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Home &amp; Kitchen</span>
+            <h3 class="ptitle">Wooden Utensil Set with Crock</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$15&ndash;$35</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="health">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1624638760852-8ede1666ab07?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="An open first aid bag with bandages and medical supplies" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Health &amp; Household</span>
+            <h3 class="ptitle">Emergency First Aid Kit</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$20&ndash;$45</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="health">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1670850756917-8ed6c2a71e12?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A white supplement bottle with softgel capsules" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Health &amp; Household</span>
+            <h3 class="ptitle">Daily Supplement Softgels</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$15&ndash;$40</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="health">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A digital upper-arm blood pressure monitor in use" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Health &amp; Household</span>
+            <h3 class="ptitle">Digital Blood Pressure Monitor</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$25&ndash;$60</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="beauty">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1710410815589-dd83514104d0?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A clear glass serum bottle with a dropper on a white background" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Beauty &amp; Personal Care</span>
+            <h3 class="ptitle">Facial Serum Dropper Bottle</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$15&ndash;$50</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="beauty">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1669646100849-8c064be27dfd?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A wooden hair brush with natural bristles" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Beauty &amp; Personal Care</span>
+            <h3 class="ptitle">Wooden Paddle Hair Brush</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$10&ndash;$25</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="beauty">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="Bamboo toothbrushes in a glass cup with eucalyptus" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Beauty &amp; Personal Care</span>
+            <h3 class="ptitle">Bamboo Toothbrush Multipack</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$8&ndash;$20</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="pet">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1714068691210-073dc52c6c1d?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A dog reaching for a stainless steel bowl of kibble" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Pet Supplies</span>
+            <h3 class="ptitle">Stainless Steel Dog Bowl</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$12&ndash;$30</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="pet">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1624609602652-b8ca6234bace?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A dog playing with a white cotton rope toy" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Pet Supplies</span>
+            <h3 class="ptitle">Cotton Rope Dog Toy</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$8&ndash;$20</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+        <li class="pcard" data-cat="pet">
+          <div class="pimg"><img src="https://images.unsplash.com/photo-1632236705239-ac6f4908638d?auto=format&amp;fit=crop&amp;w=640&amp;h=640&amp;q=80" alt="A puppy being brushed with a wooden grooming brush" width="640" height="640" loading="lazy"><span class="ptag">Now sourcing</span></div>
+          <div class="pbody">
+            <span class="pcat">Pet Supplies</span>
+            <h3 class="ptitle">Pet Grooming Brush</h3>
+            <p class="pprice"><span class="pprice-label">Typical retail</span> <span class="pprice-val">$10&ndash;$25</span></p>
+            <a class="plink" href="#contact">Supply this line <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="criteria">
+        <span class="label">What we look for in a line</span>
+        <ul>
+          <li>An established brand or authorized distributor</li>
+          <li>A clear MAP or pricing policy</li>
+          <li>Replenishable products with steady demand</li>
+          <li>Packaging that meets Amazon FBA requirements</li>
+        </ul>
+      </div>
+      <p class="cats-note">Product images are illustrative stock photography from Unsplash and do not show specific brands. Prices are typical US retail ranges, shown for guidance. We sell only authentic products bought from brand owners and their authorized distributors.</p>
+    </div>
+  </section>
+
   <section class="section approach" id="approach" aria-labelledby="approach-title">
     <div class="wrap">
       <div class="section-head">
@@ -524,145 +755,6 @@ p{margin:0}
         </div>
         <a class="btn btn-brass" href="#contact">Request a listing review</a>
       </aside>
-    </div>
-  </section>
-
-  <section class="section cats" id="categories" aria-labelledby="cats-title">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="label">Focus categories</span>
-          <h2 id="cats-title">The categories we buy for.</h2>
-        </div>
-        <p>We concentrate on four Amazon categories with steady, repeat demand. If your line fits one of them, we would like to hear from you.</p>
-      </div>
-
-      <div class="cat-grid">
-        <article class="cat">
-          <div class="cat-art" aria-hidden="true">
-            <svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M28 42h64v24a10 10 0 0 1-10 10H38a10 10 0 0 1-10-10z"/>
-              <path d="M20 47h8M92 47h8"/>
-              <path d="M25 42c7-9 63-9 70 0"/>
-              <circle cx="60" cy="31" r="3"/>
-              <path d="M47 22c-3-4 3-6 0-11M60 19c-3-4 3-6 0-11M73 22c-3-4 3-6 0-11" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="cat-body">
-            <div class="cat-top">
-              <h3>Home &amp; Kitchen</h3>
-              <span class="band">Typical MSRP $10&ndash;$150</span>
-            </div>
-            <table class="types">
-              <caption class="sr">Product types we buy in Home &amp; Kitchen, with typical retail price</caption>
-              <thead><tr><th scope="col">Product type</th><th scope="col">Typical MSRP</th></tr></thead>
-              <tbody>
-                <tr><td>Premium cookware &amp; bakeware sets</td><td>$40&ndash;$150</td></tr>
-                <tr><td>Kitchen storage &amp; organization</td><td>$15&ndash;$45</td></tr>
-                <tr><td>Kitchen tools &amp; gadgets</td><td>$10&ndash;$35</td></tr>
-                <tr><td>Drinkware &amp; tabletop</td><td>$15&ndash;$50</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="cat">
-          <div class="cat-art" aria-hidden="true">
-            <svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="44" y="28" width="32" height="48" rx="6"/>
-              <rect x="48" y="16" width="24" height="12" rx="2"/>
-              <path d="M60 42v16M52 50h16"/>
-              <path d="M84 76V52l6-6h6v30z" stroke-width="1.2"/>
-              <path d="M90 46v-6h8" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="cat-body">
-            <div class="cat-top">
-              <h3>Health &amp; Household</h3>
-              <span class="band">Typical MSRP $8&ndash;$80</span>
-            </div>
-            <table class="types">
-              <caption class="sr">Product types we buy in Health &amp; Household, with typical retail price</caption>
-              <thead><tr><th scope="col">Product type</th><th scope="col">Typical MSRP</th></tr></thead>
-              <tbody>
-                <tr><td>Vitamins &amp; dietary supplements</td><td>$15&ndash;$45</td></tr>
-                <tr><td>First aid &amp; medical supplies</td><td>$10&ndash;$35</td></tr>
-                <tr><td>Household cleaning supplies</td><td>$8&ndash;$30</td></tr>
-                <tr><td>Home health &amp; wellness devices</td><td>$20&ndash;$80</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="cat">
-          <div class="cat-art" aria-hidden="true">
-            <svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="46" y="42" width="28" height="36" rx="8"/>
-              <rect x="54" y="32" width="12" height="10" rx="1.5"/>
-              <path d="M60 32V24"/>
-              <ellipse cx="60" cy="18" rx="6" ry="7"/>
-              <path d="M52 56h16" stroke-width="1.2"/>
-              <path d="M86 46c-3 4-5 7-5 9a5 5 0 0 0 10 0c0-2-2-5-5-9z" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="cat-body">
-            <div class="cat-top">
-              <h3>Beauty &amp; Personal Care</h3>
-              <span class="band">Typical MSRP $5&ndash;$60</span>
-            </div>
-            <table class="types">
-              <caption class="sr">Product types we buy in Beauty &amp; Personal Care, with typical retail price</caption>
-              <thead><tr><th scope="col">Product type</th><th scope="col">Typical MSRP</th></tr></thead>
-              <tbody>
-                <tr><td>Skin care serums &amp; moisturizers</td><td>$15&ndash;$60</td></tr>
-                <tr><td>Hair care &amp; styling</td><td>$10&ndash;$40</td></tr>
-                <tr><td>Oral care</td><td>$5&ndash;$30</td></tr>
-                <tr><td>Bath, body &amp; shaving</td><td>$8&ndash;$35</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="cat">
-          <div class="cat-art" aria-hidden="true">
-            <svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="60" cy="54" rx="13" ry="10"/>
-              <circle cx="44" cy="39" r="5"/>
-              <circle cx="54" cy="30" r="5"/>
-              <circle cx="66" cy="30" r="5"/>
-              <circle cx="76" cy="39" r="5"/>
-              <path d="M30 76h60" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="cat-body">
-            <div class="cat-top">
-              <h3>Pet Supplies</h3>
-              <span class="band">Typical MSRP $8&ndash;$45</span>
-            </div>
-            <table class="types">
-              <caption class="sr">Product types we buy in Pet Supplies, with typical retail price</caption>
-              <thead><tr><th scope="col">Product type</th><th scope="col">Typical MSRP</th></tr></thead>
-              <tbody>
-                <tr><td>Dog &amp; cat treats and chews</td><td>$10&ndash;$35</td></tr>
-                <tr><td>Grooming &amp; hygiene</td><td>$10&ndash;$40</td></tr>
-                <tr><td>Toys &amp; enrichment</td><td>$8&ndash;$30</td></tr>
-                <tr><td>Feeding bowls &amp; accessories</td><td>$12&ndash;$45</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
-
-      <div class="criteria">
-        <span class="label">What we look for in a line</span>
-        <ul>
-          <li>An established brand or authorized distributor</li>
-          <li>A clear MAP or pricing policy</li>
-          <li>Replenishable products with steady demand</li>
-          <li>Packaging that meets Amazon FBA requirements</li>
-        </ul>
-      </div>
-      <p class="cats-note">Price bands are the typical retail ranges we target and are shown for guidance only. We do not display brand names or specific products without the brand owner's permission.</p>
     </div>
   </section>
 
@@ -913,6 +1005,16 @@ p{margin:0}
     window.addEventListener('resize', function(){ clearTimeout(timer); timer = setTimeout(draw, 120); });
     draw();
   }
+
+
+  var chips = document.querySelectorAll('[data-chip]');
+  var cards = document.querySelectorAll('.pcard');
+  function setFilter(f){
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.getAttribute('data-chip') === f)); });
+    cards.forEach(function(card){ card.hidden = !(f === 'all' || card.getAttribute('data-cat') === f); });
+  }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ setFilter(c.getAttribute('data-chip')); }); });
+  document.querySelectorAll('.tile[data-filter]').forEach(function(t){ t.addEventListener('click', function(){ setFilter(t.getAttribute('data-filter')); }); });
 
   document.querySelectorAll('[data-copy]').forEach(function(btn){
     btn.addEventListener('click', function(){
