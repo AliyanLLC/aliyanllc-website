@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Illustration of a adjustable wrench"><defs>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FAFBF9"/><stop offset=".55" stop-color="#D5DAD6"/><stop offset="1" stop-color="#AAB2AD"/></linearGradient>
+<linearGradient id="stv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F7F5"/><stop offset=".6" stop-color="#CED4CF"/><stop offset="1" stop-color="#B3BAB5"/></linearGradient>
+<linearGradient id="sth" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B9C0BB"/><stop offset=".35" stop-color="#F7F8F6"/><stop offset=".7" stop-color="#D2D7D3"/><stop offset="1" stop-color="#A9B1AC"/></linearGradient>
+<linearGradient id="wd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9D6B4"/><stop offset="1" stop-color="#C7A170"/></linearGradient>
+<linearGradient id="wdd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9A574"/><stop offset="1" stop-color="#9C7647"/></linearGradient>
+<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6CF9E"/><stop offset="1" stop-color="#AD874D"/></linearGradient>
+<linearGradient id="ch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5652"/><stop offset="1" stop-color="#1F2926"/></linearGradient>
+<linearGradient id="chv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E5A56"/><stop offset="1" stop-color="#232D2A"/></linearGradient>
+<linearGradient id="fb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E2DED6"/><stop offset="1" stop-color="#BDB7AC"/></linearGradient>
+<linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D3DCCD"/><stop offset="1" stop-color="#9FAE9A"/></linearGradient>
+<linearGradient id="sd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEE0C6"/><stop offset="1" stop-color="#D0B88D"/></linearGradient>
+<linearGradient id="gn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36574B"/><stop offset="1" stop-color="#1A2F28"/></linearGradient>
+<linearGradient id="wh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E3E7E4"/></linearGradient>
+<linearGradient id="cr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6F0E3"/><stop offset="1" stop-color="#DCCFB6"/></linearGradient>
+<linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#BAC6CE"/><stop offset="1" stop-color="#8395A1"/></linearGradient>
+<linearGradient id="clr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#CFDAD8" stop-opacity=".55"/></linearGradient>
+<pattern id="mesh" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0H7M0 0V7" stroke="#9AA39E" stroke-width=".8" fill="none"/></pattern>
+<pattern id="meshd" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="2.1" fill="#111816"/></pattern>
+<pattern id="linen" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 2.5H5M2.5 0V5" stroke="#000" stroke-opacity=".06" stroke-width="1"/></pattern>
+<pattern id="knit" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0L3 6L6 0" stroke="#000" stroke-opacity=".10" stroke-width="1" fill="none"/></pattern>
+<filter id="blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="6"/></filter>
+</defs><ellipse cx="200" cy="310" rx="150" ry="10" fill="#1B2623" opacity="0.16" filter="url(#blur)"/><g transform="rotate(-28 210 200)"><path d="M94 188 H250 Q262 188 262 200 Q262 212 250 212 H94 Q80 212 80 200 Q80 188 94 188 Z" fill="url(#sth)" stroke="#1B2623" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" /><circle cx="98" cy="200" r="6" fill="#F2F0EB" stroke="#1B2623" stroke-linejoin="round" stroke-linecap="round" stroke-width='1.6'/><path d="M248 176 Q252 150 284 146 L332 140 Q346 140 346 154 V172 L304 176 V224 L346 228 V246 Q346 260 332 260 L284 254 Q252 250 248 224 Z" fill="url(#st)" stroke="#1B2623" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" /><path d="M304 206 H340 Q348 206 348 214 V222 L304 224 Z" fill="url(#stv)" stroke="#1B2623" stroke-linejoin="round" stroke-linecap="round" stroke-width='1.8'/><rect x="262" y="214" width="30" height="18" rx="5" fill="url(#stv)" stroke="#1B2623" stroke-linejoin="round" stroke-linecap="round" stroke-width='1.6'/><path d="M266 214 v18" stroke="#7F8984" stroke-width="1.2"/><path d="M271 214 v18" stroke="#7F8984" stroke-width="1.2"/><path d="M276 214 v18" stroke="#7F8984" stroke-width="1.2"/><path d="M281 214 v18" stroke="#7F8984" stroke-width="1.2"/><path d="M286 214 v18" stroke="#7F8984" stroke-width="1.2"/></g></svg>
